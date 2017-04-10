@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+/** The middleware layer.
+ *
+ * This simple middleware layer will allow to have a simple way to configure
+ * and define all the application interaction.
+ *
+ * Indeed, to communicate applications need the destination adress.
+ * This could be achieved by settings in each application, all the
+ * addresses of all the applications though a configuration file.
+ *
+ * However this would be very hard to maintain. So intead, this middleware
+ * layer will be for now a simple directory, in which, each application will
+ * be registered at start-up.
+ *
+ * Every application will have a local copy of this directory, in order to
+ * synchronously get the address of any other application.
+ */
+package middleware;
+
+/** Define the mddleware children base settings. */
+message ChildCfg {
+  /** The master adress for gRPC request.
+   *
+   *  If the master is not available the child will refuse to start.
+   */
+  string masterAddr = 1;
+
+  /** The child address to expose gRPC services. */
+  string childAddr = 2;
+};
+
+/** Define on which address a given service is available. */
+message Application {
+  /** The unique application name.
+   *
+   *  This application name should be unique  though the whole platform.
+   */
+  string name = 1;
+  /** The service address for gRPC request. */
+  string address = 2;
+}
+
+/** An empty structure for synchronous request. */
+message Empty {};
+
+/** The middleware service is here to exchange application location.
+ *
+ * On start up, each application should:
+ * 1. Register its application.
+ * 2. Fetch all the applications locations.
+ * 3. Listen for location updates.
+ */
+service Middleware {
+  /** Register in the directory the application location. */
+  rpc registerApplication (Application) returns (Empty);
+  /** Fetch all the currently known locations. */
+  rpc fetchApplications (Empty) returns (stream Application);
+  /** Update application local directory by the master. */
+  rpc pushApplications (Application) returns (Empty);
+};
