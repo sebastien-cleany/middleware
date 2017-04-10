@@ -1,0 +1,28 @@
+{
+  "name": "messenger",
+  "version": "1.0.0",
+  "description": "This package gives a simple abstraction layer for sending messages (sms, mms, ...) through third part API.",
+  "main": "index.ts",
+  "dependencies": {},
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.1.2",
+    "html-webpack-plugin": "^2.28.0",
+    "typescript": "^2.2.2",
+    "webpack": "^2.3.3",
+    "webpack-merge": "^4.1.0"
+  },
+  "scripts": {
+    "build:dev": "webpack --config config/webpack.config.js --env=dev --progress --profile --colors",
+    "build:prod": "webpack --config config/webpack.config.js --env=prod --progress --profile --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cleany/messenger.git"
+  },
+  "author": "Sébastien Boulle",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/cleany/messenger/issues"
+  },
+  "homepage": "https://github.com/cleany/messenger#readme"
+}
