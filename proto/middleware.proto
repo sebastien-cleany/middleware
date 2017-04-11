@@ -21,6 +21,12 @@ syntax = "proto3";
 
 package middleware;
 
+/** Define the mddleware master base settings. */
+message MasterCfg {
+  /** The master adress for gRPC server. */
+  string address = 1;
+};
+
 /** Define the mddleware children base settings. */
 message ChildCfg {
   /** The master adress for gRPC request.

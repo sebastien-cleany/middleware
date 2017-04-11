@@ -3,6 +3,9 @@ logs
 *.log
 npm-debug.log*
 
+# Typescript definition for proto files
+*.proto.ts
+
 # Runtime data
 pids
 *.pid

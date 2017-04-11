@@ -2,18 +2,20 @@ const path = require("path");
 
 module.exports = function() {
   return {
+    node: {
+      fs: 'empty'
+    },
     entry: {
       'main': './src/main.ts'
     },
     output: {
       path: path.join(__dirname, '/../dist/assets'),
-      filename: 'messenger.bundle.js',
-      sourceMapFilename: 'messenger.map'
+      filename: 'master.bundle.js',
+      sourceMapFilename: 'master.map'
     },
     resolve: {
       extensions: ['.ts', '.js', '.json'],
       modules: [path.join(__dirname, 'src'), 'node_modules']
-
     },
     module: {
       rules: [{
