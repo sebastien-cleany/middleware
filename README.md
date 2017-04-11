@@ -28,6 +28,9 @@ be registered at start-up.
 Every application will have a local copy of this directory, in order to
 synchronously get the address of any other application.
 
+This approach is not really reliable, a more effective approach would
+be to have a consensuce algorithm as RAFT to register each application.
+
 []("middleware.Application")
 ### Application
 Define on which address a given service is available.
