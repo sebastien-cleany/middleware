@@ -1,5 +1,3 @@
-syntax = "proto3";
-
 /** The middleware layer.
  *
  * This simple middleware layer will allow to have a simple way to configure
@@ -16,6 +14,8 @@ syntax = "proto3";
  * Every application will have a local copy of this directory, in order to
  * synchronously get the address of any other application.
  */
+syntax = "proto3";
+
 package middleware;
 
 /** Define the mddleware children base settings. */

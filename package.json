@@ -14,7 +14,8 @@
   },
   "scripts": {
     "build:dev": "webpack --config config/webpack.config.js --env=dev --progress --profile --colors",
-    "build:prod": "webpack --config config/webpack.config.js --env=prod --progress --profile --colors"
+    "build:prod": "webpack --config config/webpack.config.js --env=prod --progress --profile --colors",
+    "readme": "protoc --doc_out=markdown,README.md:. `git ls-files proto/*.proto`"
   },
   "repository": {
     "type": "git",
